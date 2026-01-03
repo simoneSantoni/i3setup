@@ -1,0 +1,39 @@
+[global]
+    # Ubuntu Yaru-inspired color scheme
+    # Derived from Kitty terminal theme
+    background = "#300a24"
+    foreground = "#eeeeec"
+    frame_color = "#3465a4"
+    highlight = "#b4d5ff"
+
+    # Layout
+    width = 320
+    padding = 10
+    horizontal_padding = 10
+    text_icon_padding = 10
+    transparency = 0
+    frame_width = 2
+    separator_color = frame
+    corner_radius = 6
+    font = UbuntuMono Nerd Font Mono 14
+
+[urgency_low]
+    background = "#2e3436"
+    foreground = "#eeeeec"
+    frame_color = "#555753"
+    highlight = "#b4d5ff"
+    timeout = 5
+
+[urgency_normal]
+    background = "#300a24"
+    foreground = "#eeeeec"
+    frame_color = "#3465a4"
+    highlight = "#b4d5ff"
+    timeout = 8
+
+[urgency_critical]
+    background = "#d35400"
+    foreground = "#eeeeec"
+    frame_color = "#ff8c42"
+    highlight = "#300a24"
+    timeout = 0
