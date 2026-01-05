@@ -168,3 +168,6 @@ bindsym $mod+F4 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ togg
 # Screen brightness (requires brightnessctl)
 bindsym $mod+F5 exec /usr/bin/brightnessctl set 10%-
 bindsym $mod+F6 exec /usr/bin/brightnessctl set +10%
+
+# Screenshot (requires flameshot)
+bindsym Print exec --no-startup-id flameshot gui

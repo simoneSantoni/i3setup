@@ -35,6 +35,7 @@ Rofi and dunst use a darker variant (`#300a24` aubergine background) matching th
 - `Mod+F1-F3` - Volume mute/down/up
 - `Mod+F4` - Mic mute
 - `Mod+F5-F6` - Brightness down/up
+- `Print` - Screenshot (flameshot)
 
 ## Polybar Modules
 
@@ -68,4 +69,4 @@ notify-send "Test"               # Send test notification
 
 - Fonts: UbuntuSans Nerd Font, UbuntuMono Nerd Font Mono, Symbols Nerd Font
 - Icons: Papirus icon theme
-- Tools: brightnessctl, wpctl (PipeWire), xkb-switch (optional), feh
+- Tools: brightnessctl, wpctl (PipeWire), xkb-switch (optional), feh, flameshot
