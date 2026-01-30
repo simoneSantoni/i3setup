@@ -26,13 +26,14 @@ Accent      #3be381  ████  Bright green
 Alert       #55ec94  ████  Light green (urgent)
 ```
 
-Includes a **speaker output selector** module and an extensive rofi collection with 18 color schemes, 7 launcher types, applets, and power menus.
+Includes **kitty terminal config**, a **speaker output selector** module, and an extensive rofi collection with 18 color schemes, 7 launcher types, applets, and power menus.
 
 ## Components
 
 | Component | Description |
 |-----------|-------------|
 | **i3** | Tiling window manager with 5px gaps and 3px borders |
+| **kitty** | Terminal emulator with matching color theme |
 | **polybar** | Bottom status bar with custom script-driven modules |
 | **rofi** | Application launcher |
 | **dunst** | Notification daemon |
@@ -48,12 +49,12 @@ cd i3setup
 THEME=yaru-theme   # or: duotone
 
 # Backup existing configs (optional)
-for d in i3 polybar rofi dunst; do
+for d in i3 kitty polybar rofi dunst; do
   [ -d ~/.config/$d ] && mv ~/.config/$d ~/.config/$d.bak
 done
 
 # Copy configs
-cp -r $THEME/i3 $THEME/polybar $THEME/rofi $THEME/dunst ~/.config/
+cp -r $THEME/i3 $THEME/kitty $THEME/polybar $THEME/rofi $THEME/dunst ~/.config/
 
 # Make scripts executable
 chmod +x ~/.config/polybar/launch.sh ~/.config/polybar/scripts/*.sh
@@ -72,10 +73,10 @@ i3-msg reload
 **Packages:**
 ```bash
 # Arch
-sudo pacman -S i3-wm polybar rofi dunst feh brightnessctl
+sudo pacman -S i3-wm kitty polybar rofi dunst feh brightnessctl
 
 # Ubuntu/Debian
-sudo apt install i3 polybar rofi dunst feh brightnessctl
+sudo apt install i3 kitty polybar rofi dunst feh brightnessctl
 ```
 
 **Optional:**

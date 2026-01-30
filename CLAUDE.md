@@ -4,21 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Dotfiles repository for a Linux i3 desktop environment with multiple self-contained themes. Each theme provides a complete, color-consistent configuration across four components: **i3** (window manager), **polybar** (status bar), **rofi** (application launcher), and **dunst** (notification daemon).
+Dotfiles repository for a Linux i3 desktop environment with multiple self-contained themes. Each theme provides a complete, color-consistent configuration across: **i3** (window manager), **polybar** (status bar), **rofi** (application launcher), **dunst** (notification daemon), and **kitty** (terminal emulator).
 
 ## Repository Structure
 
 ```
 <theme-name>/
 ├── i3/config
+├── kitty/
+│   ├── kitty.conf             # Terminal config
+│   └── current-theme.conf     # Color theme (included by kitty.conf)
 ├── polybar/
 │   ├── config.ini
 │   ├── launch.sh
-│   └── scripts/          # Custom polybar modules (bash)
+│   └── scripts/               # Custom polybar modules (bash)
 ├── rofi/
 │   ├── config.rasi
-│   ├── colors/            # Color scheme definitions
-│   └── launchers/         # Launcher style themes
+│   ├── colors/                # Color scheme definitions
+│   └── launchers/             # Launcher style themes
 └── dunst/dunstrc
 ```
 
@@ -49,12 +52,13 @@ Rofi and dunst use `#300a24` (deep aubergine) as background, matching the Kitty 
 | Accent | `#3be381` |
 | Alert | `#55ec94` |
 
-Includes an extensive rofi collection: 18 color schemes, 7 launcher types, 5 applet types, 6 powermenu types.
+Includes kitty terminal config, an extensive rofi collection (18 color schemes, 7 launcher types, 5 applet types, 6 powermenu types).
 
 ## Architecture: Cross-Component Integration
 
-Color consistency is the core architectural concern. When changing a theme's accent color, update all four files:
+Color consistency is the core architectural concern. When changing a theme's accent color, update these files:
 - `i3/config` — `client.focused` border color
+- `kitty/current-theme.conf` — `cursor`, terminal colors
 - `polybar/config.ini` — `primary` in `[colors]`
 - `rofi/colors/*.rasi` — `selected` value
 - `dunst/dunstrc` — `frame_color` values
@@ -110,5 +114,5 @@ notify-send "Test"
 
 - **Fonts:** UbuntuSans Nerd Font, UbuntuMono Nerd Font Mono, Symbols Nerd Font
 - **Icons:** Papirus icon theme
-- **Required:** i3-wm, polybar, rofi, dunst, feh, brightnessctl
+- **Required:** i3-wm, polybar, rofi, dunst, kitty, feh, brightnessctl
 - **Optional:** xkb-switch, wpctl (PipeWire), flameshot, xrandr, dex, nm-applet, xss-lock
