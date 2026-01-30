@@ -1,0 +1,14 @@
+/**
+ *
+ * Colors from Base2Tone Field Dark (kitty theme)
+ *
+ */
+
+* {
+    background:     #18201eFF;
+    background-alt: #242e2cFF;
+    foreground:     #8ea4a0FF;
+    selected:       #00943eFF;
+    active:         #0fbda0FF;
+    urgent:         #55ec94FF;
+}

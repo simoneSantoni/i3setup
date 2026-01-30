@@ -1,0 +1,37 @@
+[global]
+    # Colors from Base2Tone Field Dark (kitty theme)
+    background = "#18201e"
+    foreground = "#8ea4a0"
+    frame_color = "#00943e"
+    highlight = "#3be381"
+
+    width = 320
+    padding = 10
+    horizontal_padding = 10
+    text_icon_padding = 10
+    transparency = 0
+    frame_width = 2
+    separator_color = frame
+    corner_radius = 6
+    font = UbuntuMono Nerd Font Mono 14
+
+[urgency_low]
+    background = "#242e2c"
+    foreground = "#8ea4a0"
+    frame_color = "#42524f"
+    highlight = "#0fbda0"
+    timeout = 5
+
+[urgency_normal]
+    background = "#18201e"
+    foreground = "#8ea4a0"
+    frame_color = "#00943e"
+    highlight = "#3be381"
+    timeout = 8
+
+[urgency_critical]
+    background = "#18201e"
+    foreground = "#a8fff1"
+    frame_color = "#55ec94"
+    highlight = "#3be381"
+    timeout = 0
