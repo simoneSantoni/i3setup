@@ -2,6 +2,9 @@
 
 # monitor-toggle.sh - Toggle monitors on/off for Polybar
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/colors.sh"
+
 get_status() {
   local monitor="$1"
   local mode=$(xrandr --query | grep "^$monitor " | awk '{print $3}')
@@ -29,9 +32,9 @@ display() {
   local status=$(get_status "$monitor")
 
   if [[ "$status" == "on" ]]; then
-    echo "%{F#2f81f7}󰍹%{F-} $label"
+    echo "%{F${COLOR_PRIMARY}}󰍹%{F-} $label"
   else
-    echo "%{F#484f58}󰶐%{F-} $label"
+    echo "%{F${COLOR_DISABLED}}󰶐%{F-} $label"
   fi
 }
 

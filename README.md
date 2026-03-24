@@ -9,7 +9,8 @@ A collection of themed i3 desktop environments with color-consistent configurati
 ```
 Primary     #E95420  ████  Ubuntu Orange (focused windows, accents)
 Secondary   #914691  ████  Aubergine Purple
-Background  #2c2c2c  ████  Dark grey (polybar)
+Background  #1a1a1a  ████  Dark grey (polybar)
+Foreground  #a0a0a0  ████  Muted grey text
 Accent BG   #300a24  ████  Deep aubergine (rofi, dunst — matches Kitty)
 Alert       #C42729  ████  Red (urgent)
 ```
@@ -28,7 +29,7 @@ Alert       #55ec94  ████  Light green (urgent)
 
 Includes **kitty terminal config**, a **speaker output selector** module, and an extensive rofi collection with 18 color schemes, 7 launcher types, applets, and power menus.
 
-### github — GitHub Dark
+### github-dark — GitHub Dark
 
 ```
 Primary     #2f81f7  ████  Blue (focused windows, accents)
@@ -38,7 +39,19 @@ Foreground  #e6edf3  ████  Light text
 Alert       #f85149  ████  Red (urgent)
 ```
 
-Based on [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme). Includes **kitty terminal config** with full GitHub Dark ANSI palette, **speaker output selector**, and **light/dark theme toggle**.
+Based on [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme). Includes **kitty terminal config** with full GitHub Dark ANSI palette and **speaker output selector**.
+
+### github-light — GitHub Light
+
+```
+Primary     #0969da  ████  Blue (focused windows, accents)
+Secondary   #0550ae  ████  Blue emphasis
+Background  #ffffff  ████  White (polybar)
+Foreground  #1f2328  ████  Dark text
+Alert       #cf222e  ████  Red (urgent)
+```
+
+Light variant of the GitHub theme. Includes **kitty terminal config** and **speaker output selector**.
 
 ## Components
 
@@ -58,7 +71,7 @@ git clone https://github.com/yourusername/i3setup.git
 cd i3setup
 
 # Pick a theme
-THEME=yaru-theme   # or: duotone, github
+THEME=yaru-theme   # or: duotone, github-dark, github-light
 
 # Backup existing configs (optional)
 for d in i3 kitty polybar rofi dunst; do
@@ -123,12 +136,12 @@ sudo apt install i3 kitty polybar rofi dunst feh brightnessctl
 | Workspaces | i3 workspace indicator | Click to switch |
 | Keyboard | GB/US layout | Click to cycle |
 | Caffeine | Prevent screen sleep | Click to toggle |
-| Theme | Light/dark mode | Click to toggle |
+| Theme | Light/dark mode (polybar, rofi, dunst) | Click to toggle |
 | Brightness | Screen brightness | Scroll to adjust |
 | Layout | Multi-monitor arrangement | Click to switch |
 | Volume | PulseAudio control | Click to mute |
 | Microphone | PipeWire mic mute | Click to toggle |
-| Speaker | Audio output selector (duotone, github) | Click to cycle |
+| Speaker | Audio output selector (duotone, github-dark, github-light) | Click to cycle |
 | Memory/CPU | System stats | — |
 | Battery | Charge status | — |
 | WiFi | Network status | — |
@@ -141,7 +154,7 @@ sudo apt install i3 kitty polybar rofi dunst feh brightnessctl
 - `polybar/config.ini` — `primary` in `[colors]`
 - `rofi/colors/*.rasi` — `selected` value
 - `dunst/dunstrc` — `frame_color` values
-- `polybar/scripts/*.sh` — hardcoded hex values for active/disabled states
+- `polybar/scripts/*.sh` — hardcoded hex values for active/disabled states (github themes centralize these in `colors.sh`)
 
 **Change wallpaper** — edit `i3/config`:
 ```bash

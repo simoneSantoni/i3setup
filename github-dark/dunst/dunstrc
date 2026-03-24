@@ -1,5 +1,5 @@
 [global]
-    # Colors from GitHub Dark (projekt0n/github-nvim-theme)
+    # Colors from GitHub (projekt0n/github-nvim-theme)
     background = "#0d1117"
     foreground = "#e6edf3"
     frame_color = "#2f81f7"

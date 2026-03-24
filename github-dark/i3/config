@@ -181,7 +181,7 @@ default_border pixel 3
 default_floating_border pixel 3
 
 # Windows coloring
-# -- GitHub Dark (projekt0n/github-nvim-theme)
+# -- GitHub (projekt0n/github-nvim-theme)
 # class                 border  | background | text    | indicator | child_border
 client.focused          #2f81f7   #2f81f7      #e6edf3   #58a6ff     #2f81f7
 client.unfocused        #161b22   #0d1117      #484f58   #161b22     #161b22

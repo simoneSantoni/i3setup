@@ -3,6 +3,9 @@
 # caffeine.sh - Toggle screen sleep prevention for Polybar
 # Prevents screen from sleeping/screensaver activation when enabled
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/colors.sh"
+
 CAFFEINE_FILE="/tmp/caffeine_enabled"
 
 # Check if caffeine is currently enabled
@@ -48,9 +51,9 @@ toggle() {
 # Display current state with icon
 display() {
   if is_enabled; then
-    echo "%{F#2f81f7}󰅶%{F-}"  # Coffee cup icon - active (using primary color)
+    echo "%{F${COLOR_PRIMARY}}󰅶%{F-}"
   else
-    echo "%{F#484f58}󰛊%{F-}"  # Coffee cup off - inactive (using disabled color)
+    echo "%{F${COLOR_DISABLED}}󰛊%{F-}"
   fi
 }
 

@@ -30,7 +30,7 @@ Dotfiles repository for a Linux i3 desktop environment with multiple self-contai
 
 Each theme directory is fully self-contained. To deploy a theme, copy its subdirectories into `~/.config/`.
 
-**Theme scope differences:** yaru-theme is minimal (1 rofi launcher type, no kitty config). duotone is extensive (18 color schemes, 7 launcher types, 5 applet types, 6 powermenu types, kitty integration). github has kitty integration and the same module set as duotone (including speaker-select).
+**Theme scope differences:** yaru-theme is minimal (1 rofi launcher type, no kitty config). duotone is extensive (18 color schemes, 7 launcher types, 5 applet types, 6 powermenu types, kitty integration). github-dark has kitty integration and the same module set as duotone (including speaker-select).
 
 ## Themes
 
@@ -59,7 +59,7 @@ Rofi and dunst use `#300a24` (deep aubergine) as background, matching the Kitty 
 
 Includes kitty terminal config, an extensive rofi collection (18 color schemes, 7 launcher types, 5 applet types, 6 powermenu types).
 
-### github — GitHub Dark
+### github-dark — GitHub Dark
 
 | Role | Dark | Light | Hex |
 |------|------|-------|-----|
@@ -78,7 +78,7 @@ Based on [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-
 Color consistency is the core architectural concern. When changing a theme's accent color, update these files:
 
 - `i3/config` — `client.focused` border color
-- `kitty/current-theme.conf` — `cursor`, terminal colors (duotone, github)
+- `kitty/current-theme.conf` — `cursor`, terminal colors (duotone, github-dark)
 - `polybar/config.ini` — `primary` in `[colors]`
 - `polybar/scripts/*.sh` — hardcoded hex values for active/disabled states
 - `rofi/colors/*.rasi` — `selected` value
@@ -92,7 +92,9 @@ Color consistency is the core architectural concern. When changing a theme's acc
 
 **rofi color chain:** `config.rasi` → imports `colors/<scheme>.rasi`; launcher styles → import `shared/colors.rasi` → imports the same scheme file.
 
-**Polybar scripts** use hardcoded `%{F#hex}` color markup (e.g., `#E95420` for active, `#6d6d6d` for disabled). Note: `speaker-select.sh` exists in duotone and github only.
+**Polybar scripts** use hardcoded `%{F#hex}` color markup (e.g., `#E95420` for active, `#6d6d6d` for disabled). Note: `speaker-select.sh` exists in duotone and github-dark only. The github-dark theme centralizes script colors in `polybar/scripts/colors.sh` — scripts source it instead of hardcoding hex values, so icon colors follow the active light/dark theme automatically.
+
+**Theme toggle scope differs by theme:** yaru-theme and duotone `theme-toggle.sh` only update `polybar/config.ini` with sed. The github-dark `theme-toggle.sh` updates polybar, rofi (both `config.rasi` and `shared/colors.rasi` imports), and dunst (`dunstrc` urgency sections) in a single pass, then restarts both polybar and dunst. It accepts `--light`, `--dark`, `--toggle`, and `--status` flags.
 
 **rofi applets/powermenu (duotone only):** Each applet type and powermenu type has its own shell script (`*.sh`) plus `.rasi` style files. Applets share a common `applets/shared/theme.bash` utility for color/font configuration.
 

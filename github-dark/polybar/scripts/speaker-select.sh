@@ -2,13 +2,19 @@
 
 # speaker-select.sh - Audio output (sink) selector for Polybar (PipeWire)
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/colors.sh"
+
+# Cache wpctl output once per invocation
+_SINKS_CACHE=""
 get_audio_sinks() {
-  # Get the Sinks section from Audio - filter for lines with [vol:
-  wpctl status | awk '/^Audio/,/^Video/' | awk '/Sinks:/,/Sink endpoints:/' | grep '\[vol:'
+  if [[ -z "$_SINKS_CACHE" ]]; then
+    _SINKS_CACHE=$(wpctl status | awk '/^Audio/,/^Video/' | awk '/Sinks:/,/Sink endpoints:/' | grep '\[vol:')
+  fi
+  echo "$_SINKS_CACHE"
 }
 
 get_sinks() {
-  # Extract sink ID - the number that appears after │ and optional * before first .
   get_audio_sinks | sed 's/^[^0-9]*//' | cut -d'.' -f1
 }
 
@@ -67,7 +73,8 @@ cycle() {
     local next_idx=$(( (current_idx + attempt) % count ))
     wpctl set-default "${sinks[$next_idx]}" 2>/dev/null
 
-    # Check if it actually changed
+    # Invalidate cache and check if it actually changed
+    _SINKS_CACHE=""
     local new_current=$(get_current_sink_id)
     if [ "$new_current" = "${sinks[$next_idx]}" ]; then
       return
@@ -78,12 +85,12 @@ cycle() {
 display() {
   local current_id=$(get_current_sink_id)
   if [ -z "$current_id" ]; then
-    echo "%{F#484f58}󰓃 ?%{F-}"
+    echo "%{F${COLOR_DISABLED}}󰓃 ?%{F-}"
     return
   fi
   local name=$(get_sink_name "$current_id")
   local short=$(get_short_name "$name")
-  echo "%{F#2f81f7}󰓃%{F-} $short"
+  echo "%{F${COLOR_PRIMARY}}󰓃%{F-} $short"
 }
 
 case "$1" in
@@ -91,9 +98,9 @@ case "$1" in
     cycle
     ;;
   --list)
+    current=$(get_current_sink_id)
     for sink_id in $(get_sinks); do
       name=$(get_sink_name "$sink_id")
-      current=$(get_current_sink_id)
       if [ "$sink_id" = "$current" ]; then
         echo "* $sink_id: $name"
       else

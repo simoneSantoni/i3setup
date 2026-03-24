@@ -6,7 +6,7 @@
  * Configuration For Rofi Version: 1.7.3
  **/
 
-/* Colors from GitHub Dark theme. */
+/* Colors — switched by theme-toggle.sh via launchers/type-3/shared/colors.rasi */
 @import "~/.config/rofi/colors/github-dark.rasi"
 
 configuration {

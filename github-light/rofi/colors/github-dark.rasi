@@ -1,0 +1,14 @@
+/**
+ *
+ * Colors from GitHub Dark (projekt0n/github-nvim-theme)
+ *
+ */
+
+* {
+    background:     #0d1117FF;
+    background-alt: #161b22FF;
+    foreground:     #e6edf3FF;
+    selected:       #2f81f7FF;
+    active:         #1f6febFF;
+    urgent:         #f85149FF;
+}

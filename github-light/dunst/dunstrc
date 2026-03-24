@@ -1,0 +1,37 @@
+[global]
+    # Colors from GitHub Light (projekt0n/github-nvim-theme)
+    background = "#ffffff"
+    foreground = "#1f2328"
+    frame_color = "#0969da"
+    highlight = "#0550ae"
+
+    width = 320
+    padding = 10
+    horizontal_padding = 10
+    text_icon_padding = 10
+    transparency = 0
+    frame_width = 2
+    separator_color = frame
+    corner_radius = 6
+    font = UbuntuMono Nerd Font Mono 14
+
+[urgency_low]
+    background = "#f6f8fa"
+    foreground = "#1f2328"
+    frame_color = "#d0d7de"
+    highlight = "#0550ae"
+    timeout = 5
+
+[urgency_normal]
+    background = "#ffffff"
+    foreground = "#1f2328"
+    frame_color = "#0969da"
+    highlight = "#0550ae"
+    timeout = 8
+
+[urgency_critical]
+    background = "#ffffff"
+    foreground = "#cf222e"
+    frame_color = "#cf222e"
+    highlight = "#a40e26"
+    timeout = 0

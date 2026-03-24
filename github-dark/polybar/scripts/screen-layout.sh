@@ -2,6 +2,9 @@
 
 # screen-layout.sh - Cycle through screen layouts for Polybar
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/colors.sh"
+
 LAYOUT_FILE="/tmp/screen_layout"
 
 # Get connected monitors
@@ -81,6 +84,17 @@ display() {
   esac
 }
 
+indicator() {
+  local target="$1"
+  local icon="$2"
+  local layout=$(get_current_layout)
+  if [[ "$layout" == "$target" ]]; then
+    echo "%{F${COLOR_PRIMARY}}${icon}%{F-}"
+  else
+    echo "%{F${COLOR_DISABLED}}${icon}%{F-}"
+  fi
+}
+
 case "$1" in
   --cycle)
     cycle_layout
@@ -90,6 +104,9 @@ case "$1" in
     ;;
   --status)
     get_current_layout
+    ;;
+  --indicator)
+    indicator "$2" "$3"
     ;;
   *)
     display

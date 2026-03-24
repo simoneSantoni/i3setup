@@ -2,6 +2,9 @@
 
 # microphone.sh - Microphone mute toggle for Polybar (PipeWire)
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/colors.sh"
+
 get_mute_status() {
   wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED
 }
@@ -12,9 +15,9 @@ toggle() {
 
 display() {
   if get_mute_status; then
-    echo "%{F#484f58}󰍭%{F-}"  # Muted (disabled color)
+    echo "%{F${COLOR_DISABLED}}󰍭%{F-}"
   else
-    echo "%{F#2f81f7}󰍬%{F-}"  # Active (primary color)
+    echo "%{F${COLOR_PRIMARY}}󰍬%{F-}"
   fi
 }
 
