@@ -28,6 +28,18 @@ Alert       #55ec94  ████  Light green (urgent)
 
 Includes **kitty terminal config**, a **speaker output selector** module, and an extensive rofi collection with 18 color schemes, 7 launcher types, applets, and power menus.
 
+### github — GitHub Dark
+
+```
+Primary     #2f81f7  ████  Blue (focused windows, accents)
+Secondary   #1f6feb  ████  Blue emphasis
+Background  #0d1117  ████  Dark (polybar)
+Foreground  #e6edf3  ████  Light text
+Alert       #f85149  ████  Red (urgent)
+```
+
+Based on [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme). Includes **kitty terminal config** with full GitHub Dark ANSI palette, **speaker output selector**, and **light/dark theme toggle**.
+
 ## Components
 
 | Component | Description |
@@ -46,7 +58,7 @@ git clone https://github.com/yourusername/i3setup.git
 cd i3setup
 
 # Pick a theme
-THEME=yaru-theme   # or: duotone
+THEME=yaru-theme   # or: duotone, github
 
 # Backup existing configs (optional)
 for d in i3 kitty polybar rofi dunst; do
@@ -116,7 +128,7 @@ sudo apt install i3 kitty polybar rofi dunst feh brightnessctl
 | Layout | Multi-monitor arrangement | Click to switch |
 | Volume | PulseAudio control | Click to mute |
 | Microphone | PipeWire mic mute | Click to toggle |
-| Speaker | Audio output selector (duotone only) | Click to cycle |
+| Speaker | Audio output selector (duotone, github) | Click to cycle |
 | Memory/CPU | System stats | — |
 | Battery | Charge status | — |
 | WiFi | Network status | — |
